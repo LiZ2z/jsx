@@ -1,0 +1,37 @@
+{
+  "name": "xiaoguo",
+  "version": "1.0.2",
+  "author": "LiZ2z <fitz-i@foxmail.com> (https://github.com/LiZ2z)",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config ./config/config.prod.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LiZ2z/U.git"
+  },
+  "license": "MIT",
+  "description": "通过jsx语法来编写一些小应用",
+  "bugs": {
+    "url": "https://github.com/LiZ2z/U/issues"
+  },
+  "homepage": "https://github.com/LiZ2z/U#readme",
+  "keywords": [
+    "jsx"
+  ],
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "7",
+    "babel-preset-env": "^1.7.0",
+    "clean-webpack-plugin": "^1.0.0",
+    "webpack": "^4.26.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10",
+    "webpack-merge": "^4.1.4"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {}
+}
