@@ -10,13 +10,14 @@ export function appendChild(children, parent, isExactAppend = false) {
   parent.appendChild(children)
 
   // didMount
-  let vm = unMountQueue[0]
+  // 最先触发最末端的节点的DidMount
+  let vm = unMountQueue[unMountQueue.length - 1]
   while (vm) {
     vm._mounted = true
-    unMountQueue.shift()
+    unMountQueue.pop()
     const fn = vm.componentDidMount
     fn && fn()
-    vm = unMountQueue[0]
+    vm = unMountQueue[unMountQueue.length - 1]
   }
 
 }
