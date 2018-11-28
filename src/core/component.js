@@ -8,9 +8,10 @@ export const unMountQueue = []
 export default class Component {
   constructor(props) {
     // 每个组件有一个单独的id
-    this._name = '<Component>'+this.constructor.name
-    this._id = 'u-vm-' + (id++)
-    this._mounted = false
+    this.__mounted = false
+    defineProperty(this, '__vmName', '<Component>' +( this.constructor.name|| 'unkown'))
+    defineProperty(this, '__vmId', 'u-vm-' + (id++))
+
     // 挂载props
     this.props = props
     this.componentDidMount && (this.componentDidMount = this.componentDidMount.bind(this))
@@ -24,5 +25,14 @@ export default class Component {
   setState(newState) {
 
   }
-  
+
+}
+
+function defineProperty(obj, prop, value) {
+  Object.defineProperty(obj, prop, {
+    value: value,
+    configurable: false,
+    enumerable: false,
+    writable: false
+  })
 }

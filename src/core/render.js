@@ -111,7 +111,7 @@ function loop(nodeList, callback, vmQueue, isUnmount) {
     if (vmId) {
       for (let i = 0, len = vmQueue.length; i < len; i++) {
         const vm = vmQueue[i]
-        if (vm._id === vmId) {
+        if (vm.__vmId === vmId) {
           callback(vm, i)
           vmQueue.splice(i, 1)
           if (process.env.NODE_ENV === 'development') {
