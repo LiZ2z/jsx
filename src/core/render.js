@@ -13,7 +13,7 @@ export function appendChild(children, parent, isExactAppend = false) {
   // 最先触发最末端的节点的DidMount
   let vm = unMountQueue[unMountQueue.length - 1]
   while (vm) {
-    vm._mounted = true
+    vm.__mounted = true
     unMountQueue.pop()
     const fn = vm.componentDidMount
     fn && fn()
@@ -115,7 +115,7 @@ function loop(nodeList, callback, vmQueue, isUnmount) {
           callback(vm, i)
           vmQueue.splice(i, 1)
           if (process.env.NODE_ENV === 'development') {
-            console.log(vm._name+ (isUnmount ?'已卸载': '已挂载' ));
+            console.log(vm.__vmName+ (isUnmount ?'已卸载': '已挂载' ));
           }
           break
         }
