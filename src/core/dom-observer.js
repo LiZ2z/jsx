@@ -1,5 +1,6 @@
 import {
-  vmQueue
+  vmQueue,
+  unMountQueue
 } from './component'
 
 /**
